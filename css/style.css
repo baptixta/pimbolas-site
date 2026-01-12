@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-base: #1e7bc6;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: var(--blue-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* camada do fundo */
+.loading-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("/img/balls-pattern.png");
+    background-repeat: repeat;
+    background-size: 2000px 2000px; /* ajuste conforme o pattern */
+    opacity: 0.15;
+    animation: bg-scroll 20s linear infinite;
+    z-index: 0;
+}
+
+/* SVG sempre acima */
+.svg-pimbolas-logo {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes bg-scroll {
+    from { background-position: 0 0; }
+    to   { background-position: 0 4000px; }
+}
+
+@keyframes fade-out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.fade-out {
+    animation: fade-out 1s ease;
+}
+
+.hidden {
+    display: none;
+}

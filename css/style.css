@@ -74,6 +74,10 @@ header {
 
 /* ── Play Button ── */
 
+.no-link {
+    text-decoration: none;
+}
+
 .btn-play {
     margin-top: 1.5em;
     display: flex;

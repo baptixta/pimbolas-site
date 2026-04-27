@@ -14,13 +14,13 @@
 
 @font-face {
     font-family: pimbolas;
-    src: url(/fonts/NewAmsterdam-Regular.ttf);
+    src: url(../fonts/NewAmsterdam-Regular.ttf);
 }
 
 body {
     background-color: var(--primary-bg-color);
     position: relative;
-    background-image: url('/img/fade.png');
+    background-image: url('../img/fade.png');
     background-size: cover;
     background-repeat: no-repeat;
     overflow-x: hidden;
@@ -30,7 +30,7 @@ body::before {
     content: '';
     position: fixed;
     inset: -20%;
-    background-image: url('/img/background.png');
+    background-image: url('../img/background.png');
     background-size: cover;
     opacity: .5;
     z-index: 0;

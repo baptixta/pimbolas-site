@@ -6,22 +6,41 @@
 }
 
 :root {
-    --primary-bg-color: #00C3FF; 
+    --primary-bg-color: #00C3FF;
     --button-highlight: #FFBB2A;
 }
 
 /* Game's Font */
 
 @font-face {
-  font-family: pimbolas;
-  src: url(/fonts/NewAmsterdam-Regular.ttf);
+    font-family: pimbolas;
+    src: url(/fonts/NewAmsterdam-Regular.ttf);
 }
 
 body {
     background-color: var(--primary-bg-color);
+    position: relative;
+    background-image: url('/img/fade.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: -20%;
+    background-image: url('/img/background.png');
+    background-size: cover;
+    opacity: .5;
+    z-index: 0;
+    will-change: background-position;
+    background-repeat: no-repeat;
 }
 
 main {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,7 +59,20 @@ header {
     margin: 2.5em auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 1em;
 }
+
+.trailer iframe {
+    width: 550px;
+    height: 315px;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 7px solid #000;
+}
+
+/* ── Play Button ── */
 
 .btn-play {
     margin-top: 1.5em;
@@ -52,16 +84,36 @@ header {
     border: 7px solid #000;
     filter: drop-shadow(0px 10px 0px #000000);
     background-color: var(--button-highlight);
-    padding: 5px 12px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, background-color 0.15s ease;
 }
 
-.btn-play > h2 {
+.btn-play:hover {
+    transform: translateY(-5px) scale(1.03);
+    filter: drop-shadow(0px 15px 0px #000000) brightness(1.1);
+    background-color: #dda834;
+}
+
+.btn-play:active {
+    transform: translateY(4px) scale(0.98);
+    filter: drop-shadow(0px 4px 0px #000000);
+}
+
+/* ── H2 Outline (all h2 tags) ── */
+
+h2 {
+    -webkit-text-stroke: 8px #000;
+    paint-order: stroke fill;
+}
+
+.btn-play>h2 {
     color: #fff;
-    text-shadow: 0px 5px 0px #000000;
+    text-shadow: 0px 7px 0px #000000;
     font-size: 3.5em;
 }
 
-.btn-play > img {
+.btn-play>img {
     width: 50px;
 }
 
@@ -75,17 +127,132 @@ header {
 .title-h2 {
     font-size: 4em;
     color: #fff;
-    text-shadow: 0px 5px 0px #000000;
+    text-shadow: 0px 7px 0px #000000;
 }
 
 .social-media {
-    margin: 1em auto 2em;
+    margin: 0.5em auto 3em;
     display: flex;
     gap: 1.5em;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .social-media-btn {
-    border: 4px solid #000;
-    border-radius: 8px;
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    border-radius: 15px;
+    border: 7px solid #000;
+    filter: drop-shadow(0px 10px 0px #000000);
+    background-color: var(--button-highlight);
     padding: 5px;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease, background-color 0.15s ease;
+}
+
+.social-media-btn:hover {
+    transform: translateY(-5px) scale(1.03);
+    filter: drop-shadow(0px 15px 0px #000000) brightness(1.1);
+    background-color: #dda834;
+}
+
+.social-media-btn:active {
+    transform: translateY(4px) scale(0.98);
+    filter: drop-shadow(0px 4px 0px #000000);
+}
+
+/* ── Tablet (max 768px) ── */
+
+@media (max-width: 768px) {
+    .game-logo {
+        width: 280px;
+    }
+
+    .trailer iframe {
+        width: 100%;
+        height: 240px;
+    }
+
+    .btn-play>h2 {
+        font-size: 2.2em;
+        -webkit-text-stroke: 6px #000;
+        text-shadow: 0px 6px 0px #000000;
+    }
+
+    .btn-play>img {
+        width: 36px;
+    }
+
+    .btn-play {
+        border-width: 5px;
+        border-radius: 12px;
+        gap: 0.7em;
+        padding: 5px 10px;
+    }
+
+    .title-h2 {
+        font-size: 3em;
+    }
+
+    .social-media {
+        gap: 1em;
+    }
+}
+
+/* ── Mobile (max 500px) ── */
+
+@media (max-width: 500px) {
+    header {
+        margin-top: 1.5em;
+    }
+
+    .game-logo {
+        width: 220px;
+    }
+
+    .trailer {
+        margin: 1.5em auto;
+        padding: 0 0.75em;
+    }
+
+    .trailer iframe {
+        height: 200px;
+    }
+
+    .btn-play {
+        border-width: 4px;
+        border-radius: 10px;
+        gap: 0.5em;
+        padding: 4px 8px;
+        margin-top: 1em;
+    }
+
+    .btn-play>h2 {
+        font-size: 1.6em;
+        -webkit-text-stroke: 5px #000;
+        text-shadow: 0px 5px 0px #000000;
+    }
+
+    .btn-play>img {
+        width: 28px;
+    }
+
+    .title-h2 {
+        font-size: 2.2em;
+        -webkit-text-stroke: 5px #000;
+        text-shadow: 0px 7px 0px #000000;
+    }
+
+    .social-media {
+        gap: 0.75em;
+        margin: 0.75em auto 1.5em;
+    }
+
+    .social-media-btn img {
+        width: 32px;
+        height: 32px;
+    }
 }

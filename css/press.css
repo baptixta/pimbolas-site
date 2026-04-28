@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Game's Font */
+
+@font-face {
+    font-family: pimbolas;
+    src: url(../fonts/NewAmsterdam-Regular.ttf);
+}
+
+body {
+  background: #0a0a0a;
+  color: #eaeaea;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* NAV */
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu {
+    background-color: #FFBB2A;
+    padding: .5em 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-family: pimbolas, Arial;
+    z-index: 0;
+    height: 45px;
+}
+
+.menu > ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    justify-content: flex-end;
+    line-height: normal;
+}
+
+.menu > ul > li {
+    font-size: 1.5em;
+    margin: 0 0.75em;
+}
+
+.menu > ul > li > a {
+    text-decoration: none;
+    color: #000;
+    transition: all .3s ease;
+}
+
+.menu > ul > li > a:hover {
+    color: #eaeaea;
+}
+
+.game-logo {
+    margin-top: 5em;
+    width: 380px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: pimbolas, Arial;
+  letter-spacing: 1px;
+}
+
+ul {
+  margin-bottom: 16px;
+}
+
+.link {
+  color: #eaeaea;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+  margin-top: 3.75em;
+  flex-wrap: wrap;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  opacity: 0.7;
+}
+
+.logo {
+  width: 120px;
+}
+
+/* GRID */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 28px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* FACTSHEET */
+.factsheet .fact {
+  margin-bottom: 16px;
+}
+
+.fact span {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  display: block;
+}
+
+.fact a {
+  color: #4fd1c5;
+  text-decoration: none;
+}
+
+/* DESCRIPTION */
+.description p {
+  margin-bottom: 12px;
+}
+
+/* VIDEO */
+.video {
+  margin: 24px 0;
+}
+
+.video iframe {
+  width: 100%;
+  height: 400px;
+  background: #111;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* PRESS */
+.press-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.press-card-link {
+  text-decoration: none;
+  color: #eaeaea;
+}
+
+@media (min-width: 768px) {
+  .press-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.press-card {
+  background: #111;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.press-card span {
+  font-size: 0.7rem;
+  color: #4fd1c5;
+}
+
+.press-card p {
+  margin-top: 8px;
+}
+
+/* ASSETS */
+.asset-box {
+  margin-top: 16px;
+  padding: 24px;
+  background: #111;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.asset-box > a > img {
+  width: 150px;
+}
+
+.text-link {
+  color: #4fd1c5;
+  text-decoration: none;
+}
+
+/* CONTACT */
+.contact {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.contact a {
+  color: #4fd1c5;
+  text-decoration: none;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* NAV BUTTONS */
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.nav.prev {
+  left: 16px;
+}
+
+.nav.next {
+  right: 16px;
+}
+
+/* MOBILE ajustes */
+@media (max-width: 600px) {
+  .nav {
+    font-size: 24px;
+  }
+
+  .close {
+    font-size: 24px;
+  }
+}

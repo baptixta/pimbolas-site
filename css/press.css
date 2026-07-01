@@ -34,7 +34,7 @@ header {
     top: 0;
     width: 100%;
     font-family: pimbolas, Arial;
-    z-index: 0;
+    z-index: 10;
     height: 45px;
 }
 
@@ -106,6 +106,16 @@ ul {
 
 .logo {
   width: 120px;
+}
+
+.branding-title {
+  margin-bottom: 16px;
+}
+
+.branding-assets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 /* GRID */
@@ -217,16 +227,22 @@ ul {
 
 /* ASSETS */
 .asset-box {
-  margin-top: 16px;
   padding: 24px;
   background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
   text-align: center;
   opacity: 0.7;
 }
 
+.asset-box-video {
+  margin-top: 16px;
+}
+
 .asset-box > a > img {
-  width: 150px;
+  width: 100px;
 }
 
 .text-link {
